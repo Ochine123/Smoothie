@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smoothie</title>
+  <style>
+    /* Basic styling to show/hide sections */
+    section {
+      display: none; /* By default, sections are hidden */
+    }
+    section.active {
+      display: block; /* Section with 'active' class is displayed */
+    }
+
+    /* Gradient Background for the entire page */
+    body {
+      margin: 0; /* Remove default body margin */
+      min-height: 100vh; /* Ensure body takes full viewport height for gradient to show */
+      background: linear-gradient(to right, #FF0000, #FFA500, #FFFF00); /* Red to Orange to Yellow */
+      font-family: Arial, sans-serif; /* A common sans-serif font for better readability */
+      color: #333; /* Darker text for contrast */
+    }
+
+    /* Optional: Basic styling for content to stand out on the gradient */
+    h1, h2, nav, section {
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+        padding: 15px;
+        margin: 15px auto; /* Center content and add space */
+        border-radius: 8px; /* Slightly rounded corners */
+        max-width: 800px; /* Max width for readability */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Styles for the buttons with the new gradient background */
+    nav button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        /* Applying the gradient to the buttons */
+        background: linear-gradient(to right, #FF0000, #FFA500, #FFFF00);
+        color: white; /* White text color for better contrast on the colorful buttons */
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold; /* Make button text a bit bolder */
+        transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to buttons */
+    }
+
+    nav button:hover {
+        transform: translateY(-2px); /* Slightly raise button on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        opacity: 0.9; /* Slightly dim on hover */
+    }
+  </style>
+</head>
+<body>
+  <h1>Learn Programming</h1>
+  <nav id="menu">
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="window.open('https://youtube.com/@smoothie-y2y?si=7WMisJmkv-1DwigJ', '_blank')">Main YouTube Channel</button>
+    <button onclick="window.open('https://youtube.com/@codingwithsmoothie?si=ebga_9OMblcQIt0U', '_blank')">Programming YouTube Channel</button>
+    <button onclick="window.open('https://discord.gg/DzfdeUgAuJ', '_blank')">Discord</button>
+    <button onclick="window.open('https://ochine123.github.io/Learn-Programming/', '_blank')">My first website</button>
+    <button onclick="showSection('merch')">Merch (coming soon)</button>
+  </nav>
+
+  <section id="home" class="active">
+    <h2>Welcome to my website</h2>
+    <p>You can see my YouTube channels, websites and more!</p>
+    © 2025 Smoothie. All rights reserved.
+  </section>
+  
+  <section id="merch">
+    <h2>Merch (Coming Soon)</h2>
+    <p>Stay tuned for awesome merchandise!</p>
+  </section>
+
+  <div id="dynamic-content"></div>
+
+  <script>
+    // JavaScript function to show/hide content sections
+    function showSection(sectionId) {
+      // Get all section elements on the page
+      const sections = document.querySelectorAll('section');
+      
+      // Loop through each section and remove the 'active' class (hiding them)
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Get the specific section that should be shown
+      const activeSection = document.getElementById(sectionId);
+      
+      // If the section exists, add the 'active' class to display it
+      if (activeSection) {
+        activeSection.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
